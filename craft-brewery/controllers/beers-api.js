@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 
-// const API_KEY = process.env.REACT_APP_BREWERYDB_API_KEY;
-const API_KEY = '92d341b4fae6f216a0f4c979d51501cd';
+const API_KEY = process.env.REACT_APP_BREWERYDB_API_KEY;
 
 router.get('/beers', function(req, res) {
     

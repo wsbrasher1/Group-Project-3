@@ -4,9 +4,6 @@ const API_KEY = process.env.REACT_APP_BREWERYDB_API_KEY;
 const urlForUsersearch = usersearch =>
     `https://api.brewerydb.com/v2/${usersearch}/?key=${API_KEY}`;
 
-const urlForLocation = locationZip =>
-    `https://api.brewerydb.com/v2/location/?postalCode=${locationZip}&key=92d341b4fae6f216a0f4c979d51501cd`;
-
 class BreweryDB extends Component {
     constructor(props) {
         super(props)
