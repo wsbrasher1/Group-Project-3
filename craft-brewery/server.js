@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const mongoose = require('mongoose');
 
 //To set up our PORT
@@ -14,7 +14,7 @@ const router = express.Router();
 //To have every request go through our router middleware
 app.use(router);
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 
 //To require our routes pass through our router object
