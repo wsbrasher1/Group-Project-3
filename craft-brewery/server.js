@@ -7,6 +7,13 @@ const config = require('./DB.js');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const dotenv = require('dotenv').config();
+const router = express.Router();
+const profileRouter = require('./controllers/profiles')
+//Require our routes file pass through our router
+//require("./config/routes")(router);
+
+//Designate the public folder as a static directory
+app.use(express.static("public"));
 
 //To set up mongoose connection
 mongoose.Promise = global.Promise;
@@ -20,6 +27,22 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+//To have the requests go through the router middleware
+app.use(router);
+
+//If deployed, use the deployed database. Otherwise, use the local Mongo database
+const db = process.env.MONGODB_URI || "mongodb://localhost/profiledb";
+
+//Connect mongoose to our database
+mongoose.connect(db, function(error){
+  if(error) {
+    console.log(error);
+  }
+  else{
+    console.log("Yay, mongoose connection is lit!");
+}
+});
+
 //Check with Tyler on this - example showed using bodyParser instead of express - need to know what is correct//
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
@@ -28,12 +51,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Send every other request to the React app
-
 // Define API routes here
 const apiRoutes = require('./controllers/beers-api');
 app.use('/api', apiRoutes);
-
+app.use(profileRouter);
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));

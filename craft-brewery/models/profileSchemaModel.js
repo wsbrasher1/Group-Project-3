@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 
 //To define the db collection and schema for user Profiles
 //Use the Schema constructor to create a new ProfileSchema object
-let ProfileSchema = new Schema({
+const ProfileSchema = new Schema({
     username: {
         type: String,
         trim: true,
