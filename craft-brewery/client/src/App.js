@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import BreweryDB from './BrewDB';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import BreweryDB from './BrewDB';
+// import Header from "./components/Header/Header.js";
 
 class App extends Component {
   state = {
@@ -18,13 +20,19 @@ class App extends Component {
     });
 
     return (
+      
       <div>
+        <div className="App">
+          <header className="header"/>
+        </div>
         Some Beers from internal API: {beers}
+        
         <div>
           <h2>Brewery API Data:</h2>
-          <BreweryDB locationZip="76107" />
+          {/* <BreweryDB locationZip="76107" /> */}
         </div>
       </div>
+      
     );
   }
 }
