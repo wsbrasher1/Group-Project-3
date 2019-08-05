@@ -35,7 +35,7 @@ function LoginPage() {
           className="page-header"
           style={{
             backgroundImage:
-              "url(" + require("assets/img/sections/bruno-abatti.jpg") + ")"
+              "url(" + require("assets/img/bitter.jfif") + ")"
           }}
         >
           <div className="filter" />
