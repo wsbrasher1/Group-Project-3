@@ -23,7 +23,7 @@ function Error422() {
         className="background-img"
         style={{
           backgroundImage:
-            "url(" + require("assets/img/sections/jan-sendereks.jpg") + ")"
+            "url(" + require("assets/img/bitter.jfif") + ")"
         }}
       >
         <div className="filter" />

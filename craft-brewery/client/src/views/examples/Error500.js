@@ -24,7 +24,7 @@ function Error500() {
         style={{
           backgroundImage:
             "url(" +
-            require("assets/img/sections/the-how-photographer.jpg") +
+            require("assets/img/bitter.jfif") +
             ")"
         }}
       >
